@@ -1,6 +1,6 @@
 
 resource "google_service_account_iam_policy" "gke-iam-policy" {
-  service_account_id = "gke-sa@spheric-base-448422-q9.iam.gserviceaccount.com"
+  service_account_id = "gke-service-sa@spheric-base-448422-q9.iam.gserviceaccount.com"
   policy_data        = data.google_iam_policy.gke-iam.policy_data
 }
 
