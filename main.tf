@@ -1,17 +1,8 @@
 
-resource "google_service_account_iam_policy" "gke-iam-policy" {
-  service_account_id = "gke-service-sa"
-  policy_data        = data.google_iam_policy.gke-iam.policy_data
-}
-
-data "google_iam_policy" "gke-iam" {
-  binding {
-    role = "roles/cloudsql.client"
-
-    members = [
-      "user:cammondo98@gmail.com",
-    ]
-  }
+resource "google_project_iam_member" "cloud_sql_access" {
+  project = "spheric-base-448422-q9"
+  role    = "roles/cloudsql.client"
+  member  = "serviceAccount:gke-service-sa@spheric-base-448422-q9.iam.gserviceaccount.com"
 }
 
 terraform {
