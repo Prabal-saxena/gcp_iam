@@ -7,10 +7,13 @@ resource "google_project_iam_member" "cloud_sql_access" {
 
 resource "google_project_iam_member" "cicd_artifactory_access" {
   project = "spheric-base-448422-q9"
-  role    = [
-    "roles/artifactregistry.reader",
-    "roles/storage.objectViewer"
-  ]
+  role    = "roles/artifactregistry.reader"
+  member  = "serviceAccount:ci-cd-sa@spheric-base-448422-q9.iam.gserviceaccount.com"
+}
+
+resource "google_project_iam_member" "cicd_artifactory_access" {
+  project = "spheric-base-448422-q9"
+  role    = "roles/storage.objectViewer"
   member  = "serviceAccount:ci-cd-sa@spheric-base-448422-q9.iam.gserviceaccount.com"
 }
 
