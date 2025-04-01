@@ -17,6 +17,12 @@ resource "google_project_iam_member" "cicd_artifactory_objectViewer" {
   member  = "serviceAccount:ci-cd-sa@spheric-base-448422-q9.iam.gserviceaccount.com"
 }
 
+resource "google_project_iam_member" "cicd_editor" {
+  project = "spheric-base-448422-q9"
+  role    = "roles/editor"
+  member  = "serviceAccount:ci-cd-sa@spheric-base-448422-q9.iam.gserviceaccount.com"
+}
+
 terraform {
   backend "gcs" {
     bucket  = "onlineliquorservices_bucket"
