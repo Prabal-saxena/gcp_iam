@@ -49,6 +49,31 @@ resource "google_project_iam_member" "user-sql-client" {
   member  = "serviceAccount:user-service-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
 }
 
+# HELM SA IAM roles
+resource "google_project_iam_member" "ecom-helm-cluster-viewer" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/container.clusterViewer"
+  member  = "serviceAccount:ecom-helm-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
+resource "google_project_iam_member" "ecom-helm-k8s-developer" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/container.developer"
+  member  = "serviceAccount:ecom-helm-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
+resource "google_project_iam_member" "ecom-helm-artifact-registry" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/artifactregistry.reader"
+  member  = "serviceAccount:ecom-helm-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
+resource "google_project_iam_member" "ecom-helm-sa-user" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/iam.serviceAccountUser"
+  member  = "serviceAccount:ecom-helm-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
 terraform {
   backend "gcs" {
     bucket  = "onlineliquorservices_bucket"
