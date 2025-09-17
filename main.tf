@@ -1,10 +1,3 @@
-
-resource "google_project_iam_member" "cloud_sql_access" {
-  project = "noble-linker-471623-s6"
-  role    = "roles/cloudsql.client"
-  member  = "serviceAccount:gke-service-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
-}
-
 resource "google_project_iam_member" "cicd_artifactory_access" {
   project = "noble-linker-471623-s6"
   role    = "roles/artifactregistry.reader"
@@ -21,6 +14,45 @@ resource "google_project_iam_member" "cicd_editor" {
   project = "noble-linker-471623-s6"
   role    = "roles/editor"
   member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
+resource "google_project_iam_member" "cicd_editor" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/editor"
+  member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
+# Secret Manager Access for all services
+resource "google_project_iam_member" "secretmanager-access-product" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/secretmanager.secretAccessor"
+  member  = "serviceAccount:product-service-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
+resource "google_project_iam_member" "secretmanager-access-order" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/secretmanager.secretAccessor"
+  member  = "serviceAccount:order-service-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
+resource "google_project_iam_member" "secretmanager-access-user" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/secretmanager.secretAccessor"
+  member  = "serviceAccount:user-service-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
+# Cloud SQL Access for Order Service
+resource "google_project_iam_member" "order-sql-client" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/cloudsql.client"
+  member  = "serviceAccount:order-service-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
+# Cloud SQL Access for User Service
+resource "google_project_iam_member" "user-sql-client" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/cloudsql.client"
+  member  = "serviceAccount:user-service-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
 }
 
 terraform {
