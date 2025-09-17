@@ -16,12 +16,6 @@ resource "google_project_iam_member" "cicd_editor" {
   member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
 }
 
-resource "google_project_iam_member" "cicd_editor" {
-  project = "noble-linker-471623-s6"
-  role    = "roles/editor"
-  member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
-}
-
 # Secret Manager Access for all services
 resource "google_project_iam_member" "secretmanager-access-product" {
   project = "noble-linker-471623-s6"
