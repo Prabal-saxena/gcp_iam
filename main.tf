@@ -22,6 +22,12 @@ resource "google_project_iam_member" "cicd_artifactory_writer" {
   member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
 }
 
+resource "google_project_iam_member" "cicd_cloud_storage_admin" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/storage.objectAdmin"
+  member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
 # Secret Manager Access for all services
 resource "google_project_iam_member" "secretmanager-access-product" {
   project = "noble-linker-471623-s6"
