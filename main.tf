@@ -40,6 +40,12 @@ resource "google_project_iam_member" "cicd_workload_identity_user" {
   member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
 }
 
+resource "google_project_iam_member" "cicd_container_admin" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/container.admin"
+  member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
 # Secret Manager Access for all services
 resource "google_project_iam_member" "secretmanager-access-product" {
   project = "noble-linker-471623-s6"
