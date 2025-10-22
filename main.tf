@@ -43,7 +43,7 @@ resource "google_project_iam_member" "cicd_workload_identity_user" {
 resource "google_project_iam_member" "cicd_container_admin" {
   project = "noble-linker-471623-s6"
   role    = "roles/container.admin"
-  member  = "serviceAccount:c"
+  member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
 }
 
 resource "google_project_iam_member" "cicd_token_creator" {
