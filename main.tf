@@ -52,6 +52,18 @@ resource "google_project_iam_member" "cicd_token_creator" {
   member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
 }
 
+resource "google_project_iam_member" "cicd_cloudsql_admin" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/cloudsql.admin"
+  member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
+resource "google_project_iam_member" "cicd_networkUser" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/compute.networkUser"
+  member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
 # Secret Manager Access for all services
 resource "google_project_iam_member" "secretmanager-access-product" {
   project = "noble-linker-471623-s6"
