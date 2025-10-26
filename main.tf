@@ -64,6 +64,12 @@ resource "google_project_iam_member" "cicd_networkUser" {
   member  = "serviceAccount:ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
 }
 
+resource "google_project_iam_member" "sql_proxy_cloudsql_client" {
+  project = "noble-linker-471623-s6"
+  role    = "roles/cloudsql.client"
+  member  = "serviceAccount:sql-proxy-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
+}
+
 # Secret Manager Access for all services
 resource "google_project_iam_member" "secretmanager-access-product" {
   project = "noble-linker-471623-s6"
