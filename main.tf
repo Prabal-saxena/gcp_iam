@@ -134,7 +134,7 @@ resource "google_project_iam_member" "ecom-helm-sa-user" {
 resource "google_service_account_iam_member" "ksa_gsa_workload_identity_user" {
   service_account_id = "projects/noble-linker-471623-s6/serviceAccounts/ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
   role = "roles/iam.workloadIdentityUser"
-  member = "serviceAccount:noble-linker-471623-s6.svc.id.goog[ci-cd/product-service-ci-cd-sa]"
+  member = "serviceAccount:noble-linker-471623-s6.svc.id.goog[app-microservices/product-service-ci-cd-sa]"
 }
 
 terraform {
