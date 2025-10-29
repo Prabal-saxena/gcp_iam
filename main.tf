@@ -137,7 +137,7 @@ resource "google_service_account_iam_member" "ksa_gsa_workload_identity_user" {
   member = "serviceAccount:noble-linker-471623-s6.svc.id.goog[app-microservices/product-service-ci-cd-sa]"
 }
 
-resource "google_service_account_iam_member" "ksa_gsa_workload_identity_user" {
+resource "google_service_account_iam_member" "ksa_gsa_workload_identity_user_order_service" {
   service_account_id = "projects/noble-linker-471623-s6/serviceAccounts/ci-cd-sa@noble-linker-471623-s6.iam.gserviceaccount.com"
   role = "roles/iam.workloadIdentityUser"
   member = "serviceAccount:noble-linker-471623-s6.svc.id.goog[app-microservices/order-service-ci-cd-sa]"
