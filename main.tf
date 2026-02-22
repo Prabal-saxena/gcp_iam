@@ -131,17 +131,17 @@ resource "google_project_iam_member" "ecom-helm-sa-user" {
 #====================================================
 # KSA binds to GSA for WIF through IAM policy binding
 #====================================================
-resource "google_service_account_iam_member" "ksa_gsa_workload_identity_user" {
-  service_account_id = "projects/project-3fd94e98-1d48-43cd-8c1/serviceAccounts/ci-cd-sa@project-3fd94e98-1d48-43cd-8c1.iam.gserviceaccount.com"
-  role = "roles/iam.workloadIdentityUser"
-  member = "serviceAccount:project-3fd94e98-1d48-43cd-8c1.svc.id.goog[app-microservices/product-service-ci-cd-sa]"
-}
-
-resource "google_service_account_iam_member" "ksa_gsa_workload_identity_user_order_service" {
-  service_account_id = "projects/project-3fd94e98-1d48-43cd-8c1/serviceAccounts/ci-cd-sa@project-3fd94e98-1d48-43cd-8c1.iam.gserviceaccount.com"
-  role = "roles/iam.workloadIdentityUser"
-  member = "serviceAccount:project-3fd94e98-1d48-43cd-8c1.svc.id.goog[app-microservices/order-service-ci-cd-sa]"
-}
+#resource "google_service_account_iam_member" "ksa_gsa_workload_identity_user" {
+#  service_account_id = "projects/project-3fd94e98-1d48-43cd-8c1/serviceAccounts/ci-cd-sa@project-3fd94e98-1d48-43cd-8c1.iam.gserviceaccount.com"
+#  role = "roles/iam.workloadIdentityUser"
+#  member = "serviceAccount:project-3fd94e98-1d48-43cd-8c1.svc.id.goog[app-microservices/product-service-ci-cd-sa]"
+#}
+#
+#resource "google_service_account_iam_member" "ksa_gsa_workload_identity_user_order_service" {
+#  service_account_id = "projects/project-3fd94e98-1d48-43cd-8c1/serviceAccounts/ci-cd-sa@project-3fd94e98-1d48-43cd-8c1.iam.gserviceaccount.com"
+#  role = "roles/iam.workloadIdentityUser"
+#  member = "serviceAccount:project-3fd94e98-1d48-43cd-8c1.svc.id.goog[app-microservices/order-service-ci-cd-sa]"
+#}
 
 terraform {
   backend "gcs" {
