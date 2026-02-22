@@ -49,7 +49,7 @@ resource "google_project_iam_member" "cicd_container_admin" {
 resource "google_project_iam_member" "cicd_token_creator" {
   project = var.project
   role    = "roles/iam.serviceAccountTokenCreator"
-  member  = "serviceAccount:ci-cd-sa@nproject-3fd94e98-1d48-43cd-8c1.iam.gserviceaccount.com"
+  member  = "serviceAccount:ci-cd-sa@project-3fd94e98-1d48-43cd-8c1.iam.gserviceaccount.com"
 }
 
 resource "google_project_iam_member" "cicd_cloudsql_admin" {
